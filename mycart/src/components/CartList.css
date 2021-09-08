@@ -1,7 +1,16 @@
+.cartlist{
+    display: grid;
+    width: 20%;
+    height: 200px
+}
 .cart-item{
-   
+   display: grid;
 }
 .cart-item-image{
     height: auto;
-    max-width: 10%;
+    width:8%;
+}
+img{
+    max-width: 100px;
+    max-height: 200px;
 }
