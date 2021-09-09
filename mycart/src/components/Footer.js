@@ -3,7 +3,7 @@ import React from 'react';
 function Footer(props) {
     return (
         <div className="footer">
-            <p>Total price : </p>
+            <h4 className="footer__text">Total price : </h4>
         </div>
     );
 }

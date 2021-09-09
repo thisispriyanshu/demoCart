@@ -5,12 +5,18 @@
 }
 .cart-item{
    display: grid;
+   padding: 20px;
 }
-.cart-item-image{
-    height: auto;
-    width:8%;
-}
+
 img{
     max-width: 100px;
     max-height: 200px;
+}
+
+.cart-item-button{
+    display: flex;
+}
+
+.cart-item-descr{
+    display: grid;
 }

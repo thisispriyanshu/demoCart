@@ -1,0 +1,10 @@
+.footer{
+    display: grid;
+
+}
+
+.footer__text{
+    bottom: 100px;
+    padding: 20px;
+    margin: 10px;
+}
