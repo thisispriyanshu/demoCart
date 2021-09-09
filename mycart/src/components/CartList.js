@@ -4,7 +4,7 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function CartList(props) {
+function CartList(props) {   
     return (
         <div className="cartlist">
             <div className="cart-item">
@@ -20,8 +20,8 @@ function CartList(props) {
                    <DeleteIcon/>
                 </div>
                 <div className="cart-item-descr">
-                    <p>Quantity</p>
-                    <p>Price</p>
+                    <p>Quantity : </p>
+                    <p>Price : </p>
                 </div>
             </div>
             <div className="cart-item">
