@@ -8,6 +8,8 @@ class CartList extends React.Component {
     constructor(props){
       super(props);
       this.state={
+          item : "Laptop",
+          imgUrl : "http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png",
           quantity: 1,
           price : 400,
           show : true,
@@ -50,24 +52,15 @@ class CartList extends React.Component {
             }
         })
     }
-    ToggleClick = () => {
-        this.setState({
-          show: !this.state.show
-        });
-      }
-      handleChange = (event) => {
-        this.setState({quantity: event.target.value});
-      }
       render(){
     return (
         <div className="cartlist">
             <div className="cart-item">
                 <div className="cart-item-image">
-                    <img src="http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png"/>
+                    <img src={this.state.imgUrl}/>
                 </div>
-                <div className="cart-item-text">
-                    Laptop
-                </div>
+                <input className="cart-item-text" value={this.state.item}>
+                </input>
                 <div className="cart-item-button">
                    <AddIcon onClick={this.IncrementItem}/>
                    <RemoveIcon onClick={this.DecrementItem}/>
@@ -78,23 +71,7 @@ class CartList extends React.Component {
                     <input value={this.state.price} onChange={this.handleChange}></input>
                 </div>
             </div>
-            <div className="cart-item">
-                <div className="cart-item-image">
-                    <img src="http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png"/>
-                </div>
-                <div className="cart-item-text">
-                    Laptop
-                </div>
-                <div className="cart-item-button">
-                <AddIcon onClick={this.IncrementItem}/>
-                   <RemoveIcon onClick={this.DecrementItem}/>
-                   <DeleteIcon onClick={this.DeleteItem}/>
-                </div>
-                <div className="cart-item-descr">
-                <input value={this.state.quantity} onChange={this.handleChange} ></input>
-                    <input value={this.state.price} onChange={this.handleChange}></input>
-                </div>
-            </div>
+           
         </div>
     );
       }
