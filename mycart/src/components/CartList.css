@@ -15,6 +15,7 @@ img{
 
 .cart-item-button{
     display: flex;
+    cursor: pointer;
 }
 
 .cart-item-descr{
