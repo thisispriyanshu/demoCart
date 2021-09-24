@@ -54,25 +54,22 @@ class CartList extends React.Component {
     }
       render(){
     return (
-        <div className="cartlist">
-            <div className="cart-item">
-                <div className="cart-item-image">
-                    <img src={this.state.imgUrl}/>
-                </div>
-                <input className="cart-item-text" value={this.state.item}>
-                </input>
-                <div className="cart-item-button">
-                   <AddIcon onClick={this.IncrementItem}/>
-                   <RemoveIcon onClick={this.DecrementItem}/>
-                   <DeleteIcon onClick={this.DeleteItem}/>
-                </div>
-                <div className="cart-item-descr">
-                    <input value={this.state.quantity} onChange={this.handleChange} ></input>
-                    <input value={this.state.price} onChange={this.handleChange}></input>
-                </div>
-            </div>
-           
-        </div>
+       <div className="cart-item">
+           <div className=".left-block">
+               <img src="http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png" alt="" style={{height:110,width:120,padding:10}}></img>
+           </div>
+           <div className=".right-block">
+               <h3>Laptop</h3>
+               <p>Rs. 899</p>
+               <p>1</p>
+               <div className="cart-item-actions">
+                   <AddIcon/>
+                   <RemoveIcon/>
+                   <DeleteIcon/>
+               </div>
+           </div> 
+       </div>
+       
     );
       }
 }
