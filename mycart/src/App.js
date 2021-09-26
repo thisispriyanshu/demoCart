@@ -1,5 +1,5 @@
 import './App.css';
-import CartList from './components/CartList';
+import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="app">
       {/* <Header/> */}
-      <CartList/>
+      <Cart/>
       {/* <Footer/> */}
     </div>
   );

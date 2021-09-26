@@ -5,23 +5,12 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 class CartList extends React.Component { 
-    constructor(props){
-      super(props);
-      this.state={
-          item : "Laptop",
-          imgUrl : "http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png",
-          quantity: 1,
-          price : 400,
-          show : true,
-          min: 0,
-      };
-    }
     IncrementItem=()=>{
         this.setState(prevState=>{
             if(prevState.quantity >-1){
                 return{
-                    quantity: prevState.quantity +1,
-                    price : prevState.price + 400,
+                     quantity: prevState.quantity +1,
+                    price : prevState.price + 4999,
                 }
             }else{
                 return null;
@@ -33,7 +22,7 @@ class CartList extends React.Component {
             if(prevState.quantity >0){
                 return{
                     quantity: prevState.quantity -1,
-                    price : prevState.price - 400,
+                    price : prevState.price - 4999,
                 }
             }else{
                 return null;
@@ -53,19 +42,20 @@ class CartList extends React.Component {
         })
     }
       render(){
+          const {price,quantity,title}=this.props.product;
     return (
        <div className="cart-item">
-           <div className=".left-block">
+           <div className="left-block">
                <img src="http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png" alt="" style={{height:110,width:120,padding:10}}></img>
            </div>
-           <div className=".right-block">
-               <h3>Laptop</h3>
-               <p>Rs. 899</p>
-               <p>1</p>
+           <div className="right-block">
+               <h3>{title}</h3>
+               <p>Rs. {price}</p>
+               <p>{quantity}</p>
                <div className="cart-item-actions">
-                   <AddIcon/>
-                   <RemoveIcon/>
-                   <DeleteIcon/>
+                   <AddIcon className="actions-icons" onClick= {this.IncrementItem}/>
+                   <RemoveIcon className="actions-icons" onClick={this.DecrementItem}/>
+                   <DeleteIcon className="actions-icons" onClick={this.DeleteItem}/>
                </div>
            </div> 
        </div>
