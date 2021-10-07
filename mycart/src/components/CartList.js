@@ -42,7 +42,8 @@ class CartList extends React.Component {
         })
     }
       render(){
-          const {price,quantity,title,imgUrl,id}=this.props.product;
+          const {price,quantity,title,imgUrl}=this.props.product;
+          const {onIncreaseQuantity,onDecreaseQuantity,onDeleteQuantity}=this.props
     return (
        <div className="cart-item">
            <div className="left-block">
@@ -53,9 +54,9 @@ class CartList extends React.Component {
                <p>Rs. {price}</p>
                <p>{quantity}</p>
                <div className="cart-item-actions">
-                   <AddIcon className="actions-icons" onClick= {()=>this.props.onIncreaseQuantity(this.props.product)}/>
-                   <RemoveIcon className="actions-icons" onClick={()=>this.props.onDecreaseQuantity(this.props.product)}/>
-                   <DeleteIcon className="actions-icons" onClick={this.DeleteItem}/>
+                   <AddIcon className="actions-icons" onClick= {()=>onIncreaseQuantity(this.props.product)}/>
+                   <RemoveIcon className="actions-icons" onClick={()=>onDecreaseQuantity(this.props.product)}/>
+                   <DeleteIcon className="actions-icons" onClick={()=>onDeleteQuantity(this.props.product)}/>
                </div>
            </div> 
        </div>
