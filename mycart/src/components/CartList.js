@@ -42,19 +42,19 @@ class CartList extends React.Component {
         })
     }
       render(){
-          const {price,quantity,title}=this.props.product;
+          const {price,quantity,title,imgUrl,id}=this.props.product;
     return (
        <div className="cart-item">
            <div className="left-block">
-               <img src="http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png" alt="" style={{height:110,width:120,padding:10}}></img>
+               <img src={imgUrl}></img>
            </div>
            <div className="right-block">
                <h3>{title}</h3>
                <p>Rs. {price}</p>
                <p>{quantity}</p>
                <div className="cart-item-actions">
-                   <AddIcon className="actions-icons" onClick= {this.IncrementItem}/>
-                   <RemoveIcon className="actions-icons" onClick={this.DecrementItem}/>
+                   <AddIcon className="actions-icons" onClick= {()=>this.props.onIncreaseQuantity(this.props.product)}/>
+                   <RemoveIcon className="actions-icons" onClick={()=>this.props.onDecreaseQuantity(this.props.product)}/>
                    <DeleteIcon className="actions-icons" onClick={this.DeleteItem}/>
                </div>
            </div> 

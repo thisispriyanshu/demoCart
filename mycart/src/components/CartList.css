@@ -2,8 +2,10 @@
     display: inline-flex;
     margin: 20px 10px;
 }
-
-.cart-item .right-block{
+.left-block img{
+    width: 100px;
+}
+.right-block{
     padding: 0 20px;
 }
 
