@@ -3,32 +3,24 @@ import './App.css';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import firebase from './firebase'
 
 class App extends React.Component {
   constructor(){
     super();
     this.state={
-        products:[
-        {
-            id:1,
-        title:"Laptop",
-        imgUrl : "http://www.clipartbest.com/cliparts/RcG/EkX/RcGEkXeRi.png",
-        quantity: 1,
-        price : 4999,
-        fixedPrice:4999,
-        isLoggedin : true,
-       },
-       {
-           id:2,
-          title:"Watch",
-        imgUrl : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Qtz_watch.svg/694px-Qtz_watch.svg.png",
-        quantity: 1,
-        price : 499,
-        fixedPrice:499,
-        isLoggedin : true,  
-       }
-      ]
+        products:[]
   };
+  }
+
+  componentDidMount(){
+    firebase
+       .firestore()
+       .collections()
+       .get(()=>{
+         console.log("hello")
+       })
+
   }
   handleIncreaseQuantity = (product) =>{
       // console.log("hey its is increasing ", product);
