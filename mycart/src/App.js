@@ -4,7 +4,8 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import firebase from './firebase'
-
+import {getFirestore } from 'firebase/firestore';
+const db= getFirestore(firebase)
 class App extends React.Component {
   constructor(){
     super();
@@ -12,10 +13,9 @@ class App extends React.Component {
         products:[]
   };
   }
-
+  
   componentDidMount(){
-    firebase
-       .firestore()
+      db
        .collections()
        .get(()=>{
          console.log("hello")

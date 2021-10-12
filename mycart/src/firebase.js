@@ -1,6 +1,6 @@
-import firebase from 'firebase'
+import {intializeApp} from 'firebase/compat/app'
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyAkip2M4yiC1bAL-uMnw4TdFnepd65P0Dw",
     authDomain: "fir-cart-18674.firebaseapp.com",
     projectId: "fir-cart-18674",
@@ -9,7 +9,7 @@ var firebaseConfig = {
     appId: "1:674648867074:web:9963f04392ee1effd4021b",
     measurementId: "G-LJ0HVC5R5M"
   };
+  
+  const app = intializeApp(firebaseConfig);
 
-  var app = firebase.intializeApp(firebaseConfig);
-
-  export default app;
+  export default firebase;
