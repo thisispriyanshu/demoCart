@@ -1,0 +1,16 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    /* align-items: center; */
+}
+
+.header .cart-button{
+    justify-content: left;
+}
+
+.header .cart-count{
+    position: absolute;
+    right: 10px;
+    /* top: -1px; */
+}
