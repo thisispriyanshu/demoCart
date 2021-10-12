@@ -3,9 +3,23 @@ import './App.css';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import firebase from './firebase'
-import {getFirestore } from 'firebase/firestore';
-const db= getFirestore(firebase)
+import {initializeApp} from 'firebase/app'
+import { getFirestore,collection,getDocs,getDoc } from '@firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBm4NhK8Bujqe1QsRbTAUgBvtu0ucksAVE",
+  authDomain: "fir-cart-3a52d.firebaseapp.com",
+  projectId: "fir-cart-3a52d",
+  storageBucket: "fir-cart-3a52d.appspot.com",
+  messagingSenderId: "75430461284",
+  appId: "1:75430461284:web:bdd8cedb589bedbdd60471",
+  measurementId: "G-Z613QSQ4EN"
+};
+
+const app=initializeApp(firebaseConfig)
+const db = getFirestore(app)
+
+
 class App extends React.Component {
   constructor(){
     super();
@@ -15,11 +29,9 @@ class App extends React.Component {
   }
   
   componentDidMount(){
-      db
-       .collections()
-       .get(()=>{
-         console.log("hello")
-       })
+       const productsCol = collection(db,'products')
+        db.collection('products'.getDocs())
+const snapshot = await getDocs(productsCol) 
 
   }
   handleIncreaseQuantity = (product) =>{
