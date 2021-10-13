@@ -1,37 +1,28 @@
 import React from 'react';
 import './App.css';
+import './index'
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import {initializeApp} from 'firebase/app'
-import { getFirestore,collection,getDocs,getDoc } from '@firebase/firestore';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBm4NhK8Bujqe1QsRbTAUgBvtu0ucksAVE",
-  authDomain: "fir-cart-3a52d.firebaseapp.com",
-  projectId: "fir-cart-3a52d",
-  storageBucket: "fir-cart-3a52d.appspot.com",
-  messagingSenderId: "75430461284",
-  appId: "1:75430461284:web:bdd8cedb589bedbdd60471",
-  measurementId: "G-Z613QSQ4EN"
-};
-
-const app=initializeApp(firebaseConfig)
-const db = getFirestore(app)
-
+import { firestore } from './firebase';
+import {collection} from '@firebase/firestore'
+   
+const ref=collection(firestore,'products')
 
 class App extends React.Component {
   constructor(){
     super();
     this.state={
         products:[]
-  };
   }
-  
+  }
   componentDidMount(){
-       const productsCol = collection(db,'products')
-        db.collection('products'.getDocs())
-const snapshot = await getDocs(productsCol) 
+    firestore
+       .collections("products")
+       .get()
+       .then((snapshot)=>{
+         console.log(snapshot)
+       })
 
   }
   handleIncreaseQuantity = (product) =>{
@@ -77,11 +68,14 @@ const snapshot = await getDocs(productsCol)
   totalPrice=()=>{
     const {products}=this.state
     let total=0;
-    products.forEach((product)=>{
-        total+=product.price
-    })
-    return total
-  }
+    products.map(product=>{
+      if(product.quantity>0){
+        total+=product.price*product.quantity
+    }
+    return '';
+  });
+  return total
+}
 
   render(){
   const {products}= this.state
